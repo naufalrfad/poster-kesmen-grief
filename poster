@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Kesehatan Mental - Kelompok 4</title>
+    <!-- Menggunakan Font Google yang Estetik dan Menenangkan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #dcd6cd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #3d342e;
+            padding: 20px;
+        }
+
+        /* Container dengan Rasio 4:5 (Instagram Feed) */
+        .poster-container {
+            width: 1080px;
+            height: 1350px;
+            background-color: #f7f4eb;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            
+            /* Visual Analogi Kintsugi: Garis Emas Abstrak di Background */
+            background-image: 
+                linear-gradient(135px, transparent 45%, #d4af37 46%, #e6ca65 48%, transparent 49%),
+                linear-gradient(45px, transparent 60%, #d4af37 61%, #e6ca65 62%, transparent 63%);
+            background-size: 200% 200%;
+            background-position: center;
+        }
+
+        /* Aksen Tunas Tanaman Kecil di Sudut Sela Retakan */
+        .poster-container::after {
+            content: '🌱';
+            position: absolute;
+            bottom: 80px;
+            right: 80px;
+            font-size: 3rem;
+            opacity: 0.7;
+            filter: grayscale(20%);
+        }
+
+        /* --- 1. Bagian Atas: Header --- */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #e0d8cc;
+            padding-bottom: 20px;
+        }
+
+        .header h4 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #5c6f5a; /* Sage Green */
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .header h5 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #7c6f62;
+            margin-bottom: 12px;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            color: #61554d;
+        }
+
+        .member {
+            font-weight: 500;
+        }
+
+        /* --- 2. Bagian Tengah Atas: Judul Utama --- */
+        .main-title-box {
+            text-align: center;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .main-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            line-height: 1.2;
+            color: #2c3e2b; /* Deep Sage */
+            font-weight: 600;
+        }
+
+        .main-title span {
+            font-style: italic;
+            color: #b8860b; /* Gold accent */
+        }
+
+        /* --- 3. Bagian Tengah: Prevalensi & Ulasan --- */
+        .grid-middle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 30px;
+            border-radius: 16px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.2); /* Sentuhan emas tipis */
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: #5c6f5a;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #d4af37;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a3f35;
+            text-align: justify;
+        }
+
+        .highlight-data {
+            font-weight: 700;
+            color: #8b5a2b; /* Cokelat tua tegas */
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* --- 4. Bagian Tengah Bawah: PTG --- */
+        .ptg-section {
+            background-color: rgba(92, 111, 90, 0.08); /* Soft sage tint */
+            border-left: 5px solid #5c6f5a;
+            padding: 35px;
+            border-radius: 0 16px 16px 0;
+            margin-bottom: 40px;
+        }
+
+        .ptg-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: #2c3e2b;
+            margin-bottom: 10px;
+        }
+
+        .ptg-definition {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #61554d;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .tip-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .tip-number {
+            background-color: #5c6f5a;
+            color: white;
+            font-weight: 700;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .tip-content h4 {
+            font-size: 1.15rem;
+            color: #3d342e;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .tip-content p {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #554a40;
+        }
+
+        /* --- 5. Bagian Paling Bawah: Penutup & CTA --- */
+        .footer {
+            text-align: center;
+            background-color: #5c6f5a;
+            color: #f7f4eb;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: auto;
+            box-shadow: 0 8px 20px rgba(92, 111, 90, 0.2);
+        }
+
+        .footer p {
+            font-style: italic;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .footer strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        
+        <!-- 1. Bagian Atas: Header & Identitas -->
+        <header class="header">
+            <h4>Mata Kuliah Kesehatan Mental | Fakultas Psikologi</h4>
+            <h5>Universitas Sebelas Maret (UNS)</h5>
+            <div class="team-members">
+                <div class="member">• Naufal Rizki Fadhillah (P0122176)</div>
+                <div class="member">• Clarabel Simaremare (P0123064)</div>
+                <div class="member">• Claudia Sekar Nareswari (P0123065)</div>
+                <div class="member">• Kezia Kinanti Jiun (P0123286)</div>
+            </div>
+        </header>
+
+        <!-- 2. Bagian Tengah Atas: Judul Utama -->
+        <div class="main-title-box">
+            <h1 class="main-title">
+                Menghargai Air Mata, Memeluk Luka:<br>
+                <span>Langkah Perlahan Menuju Post-Traumatic Growth</span>
+            </h1>
+        </div>
+
+        <!-- 3. Bagian Tengah: Prevalensi Data & Ulasan Isu -->
+        <div class="grid-middle">
+            <!-- Sisi Kiri -->
+            <div class="card">
+                <h3>Memahami Realita Kedukaan</h3>
+                <p>Secara global, sekitar <span class="highlight-data">10% hingga 16% orang dewasa</span> mengalami gangguan terkait duka cita. Selain itu, <span class="highlight-data">7% hingga 10%</span> dari mereka yang berduka berisiko mengembangkan <em>Prolonged Grief Disorder</em> (PGD) atau Gangguan Duka Cita Berkepanjangan <small>(Rosner et al., 2021)</small>.</p>
+            </div>
+            <!-- Sisi Kanan -->
+            <div class="card">
+                <h3>Mengenali Gelombang Kedukaan</h3>
+                <p>Berduka adalah respons emosional yang valid atas kehilangan. Namun, tanda kedukaan yang mendalam sering kali memicu rasa hampa dan kelelahan emosional yang berkepanjangan, terutama saat lingkungan sosial menuntut kita untuk cepat "pulih". <strong>Ingat: Proses berdukamu tidak harus terburu-buru.</strong></p>
+            </div>
+        </div>
+
+        <!-- 4. Bagian Tengah Bawah: Tips Pendekatan Psikologi Positif -->
+        <div class="ptg-section">
+            <h3>Menumbuhkan Harapan: Langkah Perlahan Menuju Pertumbuhan (PTG)</h3>
+            <p class="ptg-definition">"Post-Traumatic Growth (PTG) adalah kondisi di mana kita mampu menemukan kekuatan baru dan makna hidup yang lebih dalam pasca-krisis tanpa harus melupakan kenangan berharga yang telah tiada."</p>
+            
+            <div class="tips-grid">
+                <!-- Tips 1 -->
+                <div class="tip-item">
+                    <div class="tip-number">1</div>
+                    <div class="tip-content">
+                        <h4>Beri Waktu untuk Merasa (<em>Self-Compassion</em>)</h4>
+                        <p>Jangan menekan kesedihanmu. Memeluk luka berarti memberikan izin pada diri sendiri untuk merasa rapuh hari ini agar bisa pulih secara bertahap.</p>
+                    </div>
+                </div>
+                <!-- Tips 2 -->
+                <div class="tip-item">
+                    <div class="tip-number">2</div>
+                    <div class="tip-content">
+                        <h4>Jalin Kembali Koneksi (<em>Social Connection</em>)</h4>
+                        <p>Kamu tidak harus berjalan sendirian. Bagikan ceritamu dengan <em>support system</em> terdekat atau teman sebaya yang bersedia hadir.</p>
+                    </div>
+                </div>
+                <!-- Tips 3 -->
+                <div class="tip-item">
+                    <div class="tip-number">3</div>
+                    <div class="tip-content">
+                        <h4>Temukan Makna Baru (<em>Meaning-Making</em>)</h4>
+                        <p>Gali kembali nilai-nilai hidup atau pesan berharga yang ditinggalkan oleh mereka yang telah pergi sebagai bekal kekuatan.</p>
+                    </div>
+                </div>
+                <!-- Tips 4 -->
+                <div class="tip-item">
+                    <div class="tip-number">4</div>
+                    <div class="tip-content">
+                        <h4>Fokus pada Potensi Diri (<em>New Possibilities</em>)</h4>
+                        <p>Kehilangan memang mengubah arah hidup, namun kamu tetap memiliki kendali untuk merancang tujuan-tujuan baru secara perlahan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Bagian Paling Bawah: Call to Action (CTA) & Penutup -->
+        <footer class="footer">
+            <p>“Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”</p>
+            <strong>Jika gelombang kedukaan terasa terlalu berat untuk dihadapi sendiri, jangan ragu untuk menghubungi layanan kesehatan mental terdekat atau profesional.</strong>
+        </footer>
+
+    </div>
+
+</body>
+</html>
