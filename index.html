@@ -34,7 +34,7 @@
             background-color: #f7f4eb;
             position: relative;
             overflow: hidden;
-            padding: 60px;
+            padding: 60px 60px 40px 60px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -52,61 +52,25 @@
         .poster-container::after {
             content: '🌱';
             position: absolute;
-            bottom: 80px;
+            bottom: 140px;
             right: 80px;
             font-size: 3rem;
             opacity: 0.7;
             filter: grayscale(20%);
         }
 
-        /* --- 1. Bagian Atas: Header --- */
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #e0d8cc;
-            padding-bottom: 20px;
-        }
-
-        .header h4 {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #5c6f5a; /* Sage Green */
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .header h5 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #7c6f62;
-            margin-bottom: 12px;
-        }
-
-        .team-members {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 0.95rem;
-            color: #61554d;
-        }
-
-        .member {
-            font-weight: 500;
-        }
-
-        /* --- 2. Bagian Tengah Atas: Judul Utama --- */
+        /* --- 1. Bagian Atas: Judul Utama (Sekarang langsung di paling atas) --- */
         .main-title-box {
             text-align: center;
-            margin: 40px 0;
+            margin-top: 20px;
+            margin-bottom: 40px;
             padding: 0 20px;
         }
 
         .main-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            line-height: 1.2;
+            font-size: 3.4rem;
+            line-height: 1.25;
             color: #2c3e2b; /* Deep Sage */
             font-weight: 600;
         }
@@ -114,14 +78,16 @@
         .main-title span {
             font-style: italic;
             color: #b8860b; /* Gold accent */
+            display: block;
+            margin-top: 10px;
         }
 
-        /* --- 3. Bagian Tengah: Prevalensi & Ulasan --- */
+        /* --- 2. Bagian Tengah: Prevalensi & Ulasan --- */
         .grid-middle {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .card {
@@ -166,13 +132,13 @@
             border-radius: 4px;
         }
 
-        /* --- 4. Bagian Tengah Bawah: PTG --- */
+        /* --- 3. Bagian Tengah Bawah: PTG --- */
         .ptg-section {
             background-color: rgba(92, 111, 90, 0.08); /* Soft sage tint */
             border-left: 5px solid #5c6f5a;
             padding: 35px;
             border-radius: 0 16px 16px 0;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .ptg-section h3 {
@@ -229,30 +195,58 @@
             color: #554a40;
         }
 
-        /* --- 5. Bagian Paling Bawah: Penutup & CTA --- */
-        .footer {
+        /* --- 4. Bagian Bawah: Penutup & CTA --- */
+        .footer-cta {
             text-align: center;
             background-color: #5c6f5a;
             color: #f7f4eb;
-            padding: 30px;
+            padding: 25px 30px;
             border-radius: 12px;
-            margin-top: auto;
             box-shadow: 0 8px 20px rgba(92, 111, 90, 0.2);
+            margin-bottom: 25px;
         }
 
-        .footer p {
+        .footer-cta p {
             font-style: italic;
             font-size: 1.15rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             opacity: 0.95;
         }
 
-        .footer strong {
+        .footer-cta strong {
             display: block;
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 500;
             color: #fff;
             letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        /* --- 5. REVISI: Identitas Kelompok (Disamarkan di paling bawah) --- */
+        .meta-identity {
+            border-top: 1px dashed #d0c7b7;
+            padding-top: 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8c8275; /* Warna teks lebih samar */
+        }
+
+        .meta-info {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            color: #756a5e;
+        }
+
+        .team-members-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px 15px;
+        }
+
+        .member-item {
+            opacity: 0.85;
         }
     </style>
 </head>
@@ -260,27 +254,15 @@
 
     <div class="poster-container">
         
-        <!-- 1. Bagian Atas: Header & Identitas -->
-        <header class="header">
-            <h4>Mata Kuliah Kesehatan Mental | Fakultas Psikologi</h4>
-            <h5>Universitas Sebelas Maret (UNS)</h5>
-            <div class="team-members">
-                <div class="member">• Naufal Rizki Fadhillah (P0122176)</div>
-                <div class="member">• Clarabel Simaremare (P0123064)</div>
-                <div class="member">• Claudia Sekar Nareswari (P0123065)</div>
-                <div class="member">• Kezia Kinanti Jiun (P0123286)</div>
-            </div>
-        </header>
-
-        <!-- 2. Bagian Tengah Atas: Judul Utama -->
+        <!-- 1. Bagian Atas: Judul Utama -->
         <div class="main-title-box">
             <h1 class="main-title">
-                Menghargai Air Mata, Memeluk Luka:<br>
+                Menghargai Air Mata, Memeluk Luka
                 <span>Langkah Perlahan Menuju Post-Traumatic Growth</span>
             </h1>
         </div>
 
-        <!-- 3. Bagian Tengah: Prevalensi Data & Ulasan Isu -->
+        <!-- 2. Bagian Tengah: Prevalensi Data & Ulasan Isu -->
         <div class="grid-middle">
             <!-- Sisi Kiri -->
             <div class="card">
@@ -294,7 +276,7 @@
             </div>
         </div>
 
-        <!-- 4. Bagian Tengah Bawah: Tips Pendekatan Psikologi Positif -->
+        <!-- 3. Bagian Tengah Bawah: Tips Pendekatan Psikologi Positif -->
         <div class="ptg-section">
             <h3>Menumbuhkan Harapan: Langkah Perlahan Menuju Pertumbuhan (PTG)</h3>
             <p class="ptg-definition">"Post-Traumatic Growth (PTG) adalah kondisi di mana kita mampu menemukan kekuatan baru dan makna hidup yang lebih dalam pasca-krisis tanpa harus melupakan kenangan berharga yang telah tiada."</p>
@@ -335,11 +317,24 @@
             </div>
         </div>
 
-        <!-- 5. Bagian Paling Bawah: Call to Action (CTA) & Penutup -->
-        <footer class="footer">
-            <p>“Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”</p>
-            <strong>Jika gelombang kedukaan terasa terlalu berat untuk dihadapi sendiri, jangan ragu untuk menghubungi layanan kesehatan mental terdekat atau profesional.</strong>
-        </footer>
+        <!-- 4. Bagian Bawah: Call to Action (CTA) & Penutup -->
+        <div>
+            <div class="footer-cta">
+                <p>“Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”</p>
+                <strong>Jika gelombang kedukaan terasa terlalu berat untuk dihadapi sendiri, jangan ragu untuk menghubungi layanan kesehatan mental terdekat atau profesional.</strong>
+            </div>
+
+            <!-- 5. REVISI: Identitas ditaruh di bawah sini secara samar (Footer Kaki) -->
+            <footer class="meta-identity">
+                <div class="meta-info">Mata Kuliah Kesehatan Mental | Fakultas Psikologi, Universitas Sebelas Maret (UNS)</div>
+                <div class="team-members-row">
+                    <span class="member-item">• Naufal Rizki Fadhillah (P0122176)</span>
+                    <span class="member-item">• Clarabel Simaremare (P0123064)</span>
+                    <span class="member-item">• Claudia Sekar Nareswari (P0123065)</span>
+                    <span class="member-item">• Kezia Kinanti Jiun (P0123286)</span>
+                </div>
+            </footer>
+        </div>
 
     </div>
 
