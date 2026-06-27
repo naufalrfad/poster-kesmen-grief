@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* 1. MENGUNCI LAYAR UTAMA BROWSER */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,33 +24,37 @@
             min-height: 100vh;
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: #3d342e;
-            padding: 20px;
+            overflow: hidden; /* Mencegah scrollbar browser muncul */
         }
 
-        /* Pembungkus utama untuk membatasi ukuran maksimal di desktop */
-        .poster-wrapper {
-            width: 100%;
-            max-width: 550px; /* Ukuran maksimal lebar poster */
-            container-type: inline-size; /* Mengaktifkan Container Queries */
+        /* 2. RESPONSIVE SCALING ENGINE (Mengunci Seluruh Poster Seperti Gambar) */
+        .poster-scaler {
+            --base-width: 1080px;
+            --base-height: 1350px;
+            width: var(--base-width);
+            height: var(--base-height);
+            position: absolute;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Kontainer utama terkunci mutlak di rasio 4:5 */
+        /* 3. KANVAS ASLI POSTER (Ukuran Mutlak Feed Instagram) */
         .poster-container {
-            width: 100%;
-            aspect-ratio: 4 / 5;
+            width: 1080px;
+            height: 1350px;
             background-color: #f7f4eb;
             position: relative;
             overflow: hidden;
-            /* Semua padding dan ukuran di bawah menggunakan cqw (Container Query Width) */
-            padding: 5cqw 5cqw 4cqw 5cqw; 
+            padding: 80px 75px 60px 75px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-radius: 8px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
         }
 
-        /* Latar Belakang Kintsugi */
+        /* --- ELEMEN VISUAL KINTSUGI (Statis & Aman di Background) --- */
         .kintsugi-bg {
             position: absolute;
             top: 0;
@@ -57,25 +62,26 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(135deg, transparent 45%, #d4af37 46%, #e6ca65 47%, transparent 48%),
-                linear-gradient(45deg, transparent 60%, #d4af37 61%, #e6ca65 62%, transparent 63%);
+                linear-gradient(135deg, transparent 45%, #d4af37 45.5%, #e6ca65 47%, transparent 47.5%),
+                linear-gradient(45deg, transparent 58%, #d4af37 58.5%, #e6ca65 60%, transparent 60.5%);
             background-size: 100% 100%;
             opacity: 0.35;
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Aksen Tunas Tanaman yang Terkunci Posisinya */
+        /* --- ELEMEN VISUAL TUNAS (Posisi Terkunci Mutlak) --- */
         .sprout-accent {
             position: absolute;
-            font-size: 4cqw;
-            opacity: 0.8;
+            font-size: 45px;
+            opacity: 0.85;
             z-index: 2;
             pointer-events: none;
         }
-        .sprout-1 { top: 22%; left: 2.5%; transform: rotate(-15deg); }
-        .sprout-2 { bottom: 27%; right: 2.5%; transform: rotate(15deg); }
+        .sprout-1 { top: 250px; left: 40px; transform: rotate(-15deg); }
+        .sprout-2 { bottom: 340px; right: 40px; transform: rotate(15deg); }
 
+        /* --- LAYER KONTEN UTAMA --- */
         .content-layer {
             position: relative;
             z-index: 5;
@@ -85,16 +91,16 @@
             justify-content: space-between;
         }
 
-        /* --- 1. Judul Utama --- */
+        /* HEADER: Judul Utama */
         .main-title-box {
             text-align: center;
-            margin-bottom: 1.5cqw;
+            margin-bottom: 20px;
         }
 
         .main-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4.8cqw;
-            line-height: 1.2;
+            font-size: 54px;
+            line-height: 1.25;
             color: #2c3e2b;
             font-weight: 600;
         }
@@ -103,35 +109,36 @@
             font-style: italic;
             color: #b8860b;
             display: block;
-            font-size: 3.8cqw;
-            margin-top: 0.5cqw;
+            font-size: 44px;
+            margin-top: 10px;
         }
 
-        /* --- 2. Grid Dua Kolom --- */
+        /* KONTEN TENGAH: Data & Ulasan (Dibuat Lebih Bersih/Lega) */
         .grid-middle {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5cqw;
-            margin-bottom: 1.5cqw;
+            gap: 50px;
+            margin-bottom: 20px;
         }
 
         .card {
             background-color: rgba(255, 255, 255, 0.88);
-            padding: 2.5cqw;
-            border-radius: 2cqw;
-            border: 0.2cqw solid rgba(92, 111, 90, 0.15);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(92, 111, 90, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
 
         .card h3 {
-            font-size: 2.5cqw;
+            font-size: 26px;
             color: #5c6f5a;
-            margin-bottom: 1cqw;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .card p {
-            font-size: 2cqw;
-            line-height: 1.45;
+            font-size: 21px;
+            line-height: 1.6;
             color: #4a3f35;
             text-align: justify;
         }
@@ -140,45 +147,45 @@
             font-weight: 700;
             color: #8b5a2b;
             background-color: rgba(212, 175, 55, 0.12);
-            padding: 0 0.5cqw;
-            border-radius: 0.5cqw;
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
-        /* --- 3. Bagian PTG --- */
+        /* BAGIAN TENGAH BAWAH: Langkah Pendekatan PTG */
         .ptg-section {
             background-color: rgba(255, 255, 255, 0.88);
-            padding: 3cqw;
-            border-radius: 2cqw;
-            border: 0.2cqw solid rgba(92, 111, 90, 0.15);
-            margin-bottom: 2cqw;
+            padding: 40px 45px;
+            border-radius: 20px;
+            border: 1px solid rgba(92, 111, 90, 0.15);
+            margin-bottom: 30px;
         }
 
         .ptg-section h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.6cqw;
+            font-size: 38px;
             color: #2c3e2b;
-            margin-bottom: 2cqw;
+            margin-bottom: 25px;
             text-align: center;
         }
 
         .tips-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2cqw 3cqw;
+            gap: 25px 45px;
         }
 
         .tip-item {
             display: flex;
-            gap: 1.5cqw;
+            gap: 20px;
             align-items: flex-start;
         }
 
         .tip-icon {
-            font-size: 2.5cqw;
+            font-size: 26px;
             background: rgba(92, 111, 90, 0.1);
-            width: 5cqw;
-            height: 5cqw;
-            border-radius: 1cqw;
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -186,51 +193,54 @@
         }
 
         .tip-content h4 {
-            font-size: 2.2cqw;
+            font-size: 23px;
             color: #3d342e;
-            margin-bottom: 0.3cqw;
+            margin-bottom: 4px;
             font-weight: 700;
         }
 
         .tip-content p {
-            font-size: 1.9cqw;
-            line-height: 1.35;
+            font-size: 19px;
+            line-height: 1.45;
             color: #61554d;
         }
 
-        /* --- 4. Footer CTA & Identitas --- */
+        /* PENUTUP, CALL TO ACTION & IDENTITAS KAMPUS LENGKAP */
         .footer-container {
             background-color: #5c6f5a;
             color: #f7f4eb;
-            padding: 3cqw;
-            border-radius: 2cqw;
+            padding: 35px 40px;
+            border-radius: 16px;
             text-align: center;
             margin-top: auto;
+            box-shadow: 0 15px 35px rgba(92, 111, 90, 0.25);
         }
 
         .cta-text-main {
             display: block;
-            font-size: 2.1cqw;
+            font-size: 22px;
             font-weight: 600;
-            line-height: 1.4;
-            margin-bottom: 2cqw;
+            line-height: 1.5;
+            margin-bottom: 25px;
         }
 
+        /* Identitas Kelompok Resmi di Sisi Paling Bawah Dalam Kotak Hijau */
         .meta-identity {
-            border-top: 0.15cqw dashed rgba(247, 244, 235, 0.25);
-            padding-top: 1.5cqw;
-            font-size: 1.6cqw;
+            border-top: 1px dashed rgba(247, 244, 235, 0.3);
+            padding-top: 20px;
+            font-size: 17px;
             color: rgba(247, 244, 235, 0.85);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .meta-info-1 {
-            font-weight: 600;
-            margin-bottom: 0.3cqw;
+            font-weight: 700;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
         }
         
         .meta-info-2 {
-            margin-bottom: 1cqw;
+            margin-bottom: 12px;
             opacity: 0.9;
         }
 
@@ -238,15 +248,16 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.5cqw 2cqw;
-            font-weight: 400;
+            gap: 5px 20px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-    <div class="poster-wrapper">
+    <div class="poster-scaler" id="scaler">
         <div class="poster-container">
+            
             <div class="kintsugi-bg"></div>
 
             <div class="sprout-accent sprout-1">🌱</div>
@@ -268,7 +279,7 @@
                     </div>
                     <div class="card">
                         <h3>🌊 Gelombang Emosi</h3>
-                        <p>Berduka adalah respons valid. Kelelahan emosional kerap muncul saat lingkungan menuntut cepat pulih. Ingat: **Proses berdukamu tidak harus terburu-buru.**</p>
+                        <p>Berduka adalah respons valid. Kelelahan emosional kerap muncul saat lingkungan menuntut cepat pulih. <strong>Ingat: Proses berdukamu tidak harus terburu-buru.</strong></p>
                     </div>
                 </div>
 
@@ -328,6 +339,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const scaler = document.getElementById('scaler');
+        function adjustScale() {
+            const padding = 40; // Spasi aman pinggir browser
+            const windowWidth = window.innerWidth - padding;
+            const windowHeight = window.innerHeight - padding;
+            
+            // Menghitung rasio pengecilan berdasarkan area layar terkecil
+            const scaleX = windowWidth / 1080;
+            const scaleY = windowHeight / 1350;
+            const scale = Math.min(scaleX, scaleY, 1); // Maksimal skala 1 (ukuran asli)
+            
+            scaler.style.transform = `scale(${scale})`;
+        }
+        
+        window.addEventListener('resize', adjustScale);
+        window.addEventListener('load', adjustScale);
+    </script>
 
 </body>
 </html>
