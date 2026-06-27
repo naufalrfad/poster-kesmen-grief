@@ -15,7 +15,6 @@
             padding: 0;
         }
 
-        /* Mengunci background utama layar */
         body {
             background-color: #dcd6cd;
             display: flex;
@@ -25,34 +24,32 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: #3d342e;
             padding: 20px;
-            overflow-x: hidden;
         }
 
-        /* Pembungkus Skala Otomatis: Menjaga rasio 4:5 tetap utuh di layar HP/Desktop */
-        .poster-scaler {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Pembungkus utama untuk membatasi ukuran maksimal di desktop */
+        .poster-wrapper {
             width: 100%;
-            max-width: 600px; /* Ukuran tampilan preview nyaman di desktop */
+            max-width: 550px; /* Ukuran maksimal lebar poster */
+            container-type: inline-size; /* Mengaktifkan Container Queries */
         }
 
-        /* Container Poster Terkunci Mutlak di Rasio 4:5 */
+        /* Kontainer utama terkunci mutlak di rasio 4:5 */
         .poster-container {
             width: 100%;
             aspect-ratio: 4 / 5;
             background-color: #f7f4eb;
             position: relative;
             overflow: hidden;
-            padding: 5%;
+            /* Semua padding dan ukuran di bawah menggunakan cqw (Container Query Width) */
+            padding: 5cqw 5cqw 4cqw 5cqw; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-radius: 4px;
+            border-radius: 8px;
         }
 
-        /* Garis Emas Kintsugi Dibuat Statis di Belakang Kartu Agar Aman */
+        /* Latar Belakang Kintsugi */
         .kintsugi-bg {
             position: absolute;
             top: 0;
@@ -63,23 +60,22 @@
                 linear-gradient(135deg, transparent 45%, #d4af37 46%, #e6ca65 47%, transparent 48%),
                 linear-gradient(45deg, transparent 60%, #d4af37 61%, #e6ca65 62%, transparent 63%);
             background-size: 100% 100%;
-            opacity: 0.4;
+            opacity: 0.35;
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Peletakan Tunas Menggunakan Persentase Terkunci (Tidak Akan Numpuk) */
+        /* Aksen Tunas Tanaman yang Terkunci Posisinya */
         .sprout-accent {
             position: absolute;
-            font-size: 2.2rem;
-            opacity: 0.85;
+            font-size: 4cqw;
+            opacity: 0.8;
             z-index: 2;
             pointer-events: none;
         }
-        .sprout-1 { top: 22%; left: 4%; transform: rotate(-15deg); }
-        .sprout-2 { bottom: 26%; right: 4%; transform: rotate(15deg); }
+        .sprout-1 { top: 22%; left: 2.5%; transform: rotate(-15deg); }
+        .sprout-2 { bottom: 27%; right: 2.5%; transform: rotate(15deg); }
 
-        /* Lapisan Konten */
         .content-layer {
             position: relative;
             z-index: 5;
@@ -89,15 +85,15 @@
             justify-content: space-between;
         }
 
-        /* --- Judul Utama --- */
+        /* --- 1. Judul Utama --- */
         .main-title-box {
             text-align: center;
-            margin-bottom: 2%;
+            margin-bottom: 1.5cqw;
         }
 
         .main-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: 4.8cqw;
             line-height: 1.2;
             color: #2c3e2b;
             font-weight: 600;
@@ -107,35 +103,35 @@
             font-style: italic;
             color: #b8860b;
             display: block;
-            font-size: 1.6rem;
-            margin-top: 4px;
+            font-size: 3.8cqw;
+            margin-top: 0.5cqw;
         }
 
-        /* --- Bagian Tengah: Grid Dua Kolom --- */
+        /* --- 2. Grid Dua Kolom --- */
         .grid-middle {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 2%;
+            gap: 2.5cqw;
+            margin-bottom: 1.5cqw;
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid rgba(92, 111, 90, 0.15);
+            background-color: rgba(255, 255, 255, 0.88);
+            padding: 2.5cqw;
+            border-radius: 2cqw;
+            border: 0.2cqw solid rgba(92, 111, 90, 0.15);
         }
 
         .card h3 {
-            font-size: 0.9rem;
+            font-size: 2.5cqw;
             color: #5c6f5a;
-            margin-bottom: 8px;
+            margin-bottom: 1cqw;
             font-weight: 700;
         }
 
         .card p {
-            font-size: 0.78rem;
-            line-height: 1.5;
+            font-size: 2cqw;
+            line-height: 1.45;
             color: #4a3f35;
             text-align: justify;
         }
@@ -144,45 +140,45 @@
             font-weight: 700;
             color: #8b5a2b;
             background-color: rgba(212, 175, 55, 0.12);
-            padding: 1px 4px;
-            border-radius: 3px;
+            padding: 0 0.5cqw;
+            border-radius: 0.5cqw;
         }
 
-        /* --- Bagian PTG --- */
+        /* --- 3. Bagian PTG --- */
         .ptg-section {
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 18px;
-            border-radius: 12px;
-            border: 1px solid rgba(92, 111, 90, 0.15);
-            margin-bottom: 3%;
+            background-color: rgba(255, 255, 255, 0.88);
+            padding: 3cqw;
+            border-radius: 2cqw;
+            border: 0.2cqw solid rgba(92, 111, 90, 0.15);
+            margin-bottom: 2cqw;
         }
 
         .ptg-section h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 3.6cqw;
             color: #2c3e2b;
-            margin-bottom: 12px;
+            margin-bottom: 2cqw;
             text-align: center;
         }
 
         .tips-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px 15px;
+            gap: 2cqw 3cqw;
         }
 
         .tip-item {
             display: flex;
-            gap: 10px;
+            gap: 1.5cqw;
             align-items: flex-start;
         }
 
         .tip-icon {
-            font-size: 1.1rem;
+            font-size: 2.5cqw;
             background: rgba(92, 111, 90, 0.1);
-            width: 30px;
-            height: 30px;
-            border-radius: 8px;
+            width: 5cqw;
+            height: 5cqw;
+            border-radius: 1cqw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -190,51 +186,51 @@
         }
 
         .tip-content h4 {
-            font-size: 0.85rem;
+            font-size: 2.2cqw;
             color: #3d342e;
-            margin-bottom: 2px;
+            margin-bottom: 0.3cqw;
             font-weight: 700;
         }
 
         .tip-content p {
-            font-size: 0.72rem;
+            font-size: 1.9cqw;
             line-height: 1.35;
             color: #61554d;
         }
 
-        /* --- Footer CTA & Identitas Lengkap --- */
+        /* --- 4. Footer CTA & Identitas --- */
         .footer-container {
             background-color: #5c6f5a;
             color: #f7f4eb;
-            padding: 18px;
-            border-radius: 12px;
+            padding: 3cqw;
+            border-radius: 2cqw;
             text-align: center;
+            margin-top: auto;
         }
 
         .cta-text-main {
             display: block;
-            font-size: 0.85rem;
+            font-size: 2.1cqw;
             font-weight: 600;
             line-height: 1.4;
-            margin-bottom: 12px;
+            margin-bottom: 2cqw;
         }
 
-        /* IDENTITAS REVISI: Lengkap Kembali di Bagian Paling Bawah */
         .meta-identity {
-            border-top: 1px dashed rgba(247, 244, 235, 0.25);
-            padding-top: 10px;
-            font-size: 0.65rem;
-            color: rgba(247, 244, 235, 0.8);
+            border-top: 0.15cqw dashed rgba(247, 244, 235, 0.25);
+            padding-top: 1.5cqw;
+            font-size: 1.6cqw;
+            color: rgba(247, 244, 235, 0.85);
             line-height: 1.4;
         }
 
         .meta-info-1 {
             font-weight: 600;
-            margin-bottom: 2px;
+            margin-bottom: 0.3cqw;
         }
         
         .meta-info-2 {
-            margin-bottom: 6px;
+            margin-bottom: 1cqw;
             opacity: 0.9;
         }
 
@@ -242,26 +238,22 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 4px 10px;
+            gap: 0.5cqw 2cqw;
             font-weight: 400;
         }
     </style>
 </head>
 <body>
 
-    <div class="poster-scaler">
+    <div class="poster-wrapper">
         <div class="poster-container">
-            <!-- Background Motif Kintsugi -->
             <div class="kintsugi-bg"></div>
 
-            <!-- Posisi Tunas Tanaman Terkunci Aman -->
             <div class="sprout-accent sprout-1">🌱</div>
             <div class="sprout-accent sprout-2">🌱</div>
 
-            <!-- Lapisan Konten Utama -->
             <div class="content-layer">
                 
-                <!-- 1. Judul Utama -->
                 <div class="main-title-box">
                     <h1 class="main-title">
                         Menghargai Air Mata, Memeluk Luka
@@ -269,7 +261,6 @@
                     </h1>
                 </div>
 
-                <!-- 2. Grid Informasi Ringkas -->
                 <div class="grid-middle">
                     <div class="card">
                         <h3>📊 Realita Kedukaan</h3>
@@ -281,7 +272,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Langkah PTG -->
                 <div class="ptg-section">
                     <h3>Menumbuhkan Harapan: Langkah Menuju Pertumbuhan (PTG)</h3>
                     
@@ -317,14 +307,12 @@
                     </div>
                 </div>
 
-                <!-- 4. Footer CTA & Identitas Lengkap -->
                 <footer class="footer-container">
                     <strong class="cta-text-main">
                         “Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”<br>
                         Jika gelombang kedukaan terasa terlalu berat, jangan ragu hubungi layanan kesehatan mental atau profesional.
                     </strong>
                     
-                    <!-- IDENTITAS DITAMBAHKAN LENGKAP KEMBALI DI SINI -->
                     <div class="meta-identity">
                         <div class="meta-info-1">Mata Kuliah Kesehatan Mental | Fakultas Psikologi</div>
                         <div class="meta-info-2">Universitas Sebelas Maret (UNS) &bull; Kelompok 4 Coursera (Kelas C 2023)</div>
