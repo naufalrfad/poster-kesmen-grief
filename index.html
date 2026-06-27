@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poster Kesehatan Mental - Kelompok 4</title>
-    <!-- Menggunakan Font Google yang Estetik dan Menenangkan -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -34,7 +33,7 @@
             background-color: #f7f4eb;
             position: relative;
             overflow: hidden;
-            padding: 60px 60px 40px 60px;
+            padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -52,14 +51,14 @@
         .poster-container::after {
             content: '🌱';
             position: absolute;
-            bottom: 140px;
+            bottom: 230px;
             right: 80px;
             font-size: 3rem;
             opacity: 0.7;
             filter: grayscale(20%);
         }
 
-        /* --- 1. Bagian Atas: Judul Utama (Sekarang langsung di paling atas) --- */
+        /* --- 1. Bagian Atas: Judul Utama --- */
         .main-title-box {
             text-align: center;
             margin-top: 20px;
@@ -95,7 +94,7 @@
             padding: 30px;
             border-radius: 16px;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(212, 175, 55, 0.2); /* Sentuhan emas tipis */
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .card h3 {
@@ -126,7 +125,7 @@
 
         .highlight-data {
             font-weight: 700;
-            color: #8b5a2b; /* Cokelat tua tegas */
+            color: #8b5a2b;
             background-color: rgba(212, 175, 55, 0.1);
             padding: 2px 6px;
             border-radius: 4px;
@@ -195,47 +194,46 @@
             color: #554a40;
         }
 
-        /* --- 4. Bagian Bawah: Penutup & CTA --- */
-        .footer-cta {
-            text-align: center;
+        /* --- 4. Bagian Paling Bawah: Penutup, CTA & Identitas --- */
+        .footer-container {
             background-color: #5c6f5a;
             color: #f7f4eb;
-            padding: 25px 30px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(92, 111, 90, 0.2);
-            margin-bottom: 25px;
+            text-align: center;
+            margin-top: auto;
         }
 
-        .footer-cta p {
+        .cta-text-top {
             font-style: italic;
             font-size: 1.15rem;
             margin-bottom: 8px;
             opacity: 0.95;
         }
 
-        .footer-cta strong {
+        .cta-text-main {
             display: block;
             font-size: 1.15rem;
-            font-weight: 500;
+            font-weight: 600;
             color: #fff;
             letter-spacing: 0.5px;
             line-height: 1.4;
+            margin-bottom: 20px;
         }
 
-        /* --- 5. REVISI: Identitas Kelompok (Disamarkan di paling bawah) --- */
+        /* Identitas Kelompok di dalam Kotak Hijau bawah */
         .meta-identity {
-            border-top: 1px dashed #d0c7b7;
+            border-top: 1px dashed rgba(247, 244, 235, 0.3);
             padding-top: 15px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #8c8275; /* Warna teks lebih samar */
+            font-size: 0.8rem;
+            color: rgba(247, 244, 235, 0.7);
         }
 
         .meta-info {
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.5px;
             margin-bottom: 6px;
-            color: #756a5e;
         }
 
         .team-members-row {
@@ -246,7 +244,7 @@
         }
 
         .member-item {
-            opacity: 0.85;
+            font-weight: 400;
         }
     </style>
 </head>
@@ -254,7 +252,6 @@
 
     <div class="poster-container">
         
-        <!-- 1. Bagian Atas: Judul Utama -->
         <div class="main-title-box">
             <h1 class="main-title">
                 Menghargai Air Mata, Memeluk Luka
@@ -262,27 +259,22 @@
             </h1>
         </div>
 
-        <!-- 2. Bagian Tengah: Prevalensi Data & Ulasan Isu -->
         <div class="grid-middle">
-            <!-- Sisi Kiri -->
             <div class="card">
                 <h3>Memahami Realita Kedukaan</h3>
                 <p>Secara global, sekitar <span class="highlight-data">10% hingga 16% orang dewasa</span> mengalami gangguan terkait duka cita. Selain itu, <span class="highlight-data">7% hingga 10%</span> dari mereka yang berduka berisiko mengembangkan <em>Prolonged Grief Disorder</em> (PGD) atau Gangguan Duka Cita Berkepanjangan <small>(Rosner et al., 2021)</small>.</p>
             </div>
-            <!-- Sisi Kanan -->
             <div class="card">
                 <h3>Mengenali Gelombang Kedukaan</h3>
                 <p>Berduka adalah respons emosional yang valid atas kehilangan. Namun, tanda kedukaan yang mendalam sering kali memicu rasa hampa dan kelelahan emosional yang berkepanjangan, terutama saat lingkungan sosial menuntut kita untuk cepat "pulih". <strong>Ingat: Proses berdukamu tidak harus terburu-buru.</strong></p>
             </div>
         </div>
 
-        <!-- 3. Bagian Tengah Bawah: Tips Pendekatan Psikologi Positif -->
         <div class="ptg-section">
             <h3>Menumbuhkan Harapan: Langkah Perlahan Menuju Pertumbuhan (PTG)</h3>
             <p class="ptg-definition">"Post-Traumatic Growth (PTG) adalah kondisi di mana kita mampu menemukan kekuatan baru dan makna hidup yang lebih dalam pasca-krisis tanpa harus melupakan kenangan berharga yang telah tiada."</p>
             
             <div class="tips-grid">
-                <!-- Tips 1 -->
                 <div class="tip-item">
                     <div class="tip-number">1</div>
                     <div class="tip-content">
@@ -290,7 +282,6 @@
                         <p>Jangan menekan kesedihanmu. Memeluk luka berarti memberikan izin pada diri sendiri untuk merasa rapuh hari ini agar bisa pulih secara bertahap.</p>
                     </div>
                 </div>
-                <!-- Tips 2 -->
                 <div class="tip-item">
                     <div class="tip-number">2</div>
                     <div class="tip-content">
@@ -298,7 +289,6 @@
                         <p>Kamu tidak harus berjalan sendirian. Bagikan ceritamu dengan <em>support system</em> terdekat atau teman sebaya yang bersedia hadir.</p>
                     </div>
                 </div>
-                <!-- Tips 3 -->
                 <div class="tip-item">
                     <div class="tip-number">3</div>
                     <div class="tip-content">
@@ -306,7 +296,6 @@
                         <p>Gali kembali nilai-nilai hidup atau pesan berharga yang ditinggalkan oleh mereka yang telah pergi sebagai bekal kekuatan.</p>
                     </div>
                 </div>
-                <!-- Tips 4 -->
                 <div class="tip-item">
                     <div class="tip-number">4</div>
                     <div class="tip-content">
@@ -317,15 +306,11 @@
             </div>
         </div>
 
-        <!-- 4. Bagian Bawah: Call to Action (CTA) & Penutup -->
-        <div>
-            <div class="footer-cta">
-                <p>“Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”</p>
-                <strong>Jika gelombang kedukaan terasa terlalu berat untuk dihadapi sendiri, jangan ragu untuk menghubungi layanan kesehatan mental terdekat atau profesional.</strong>
-            </div>
-
-            <!-- 5. REVISI: Identitas ditaruh di bawah sini secara samar (Footer Kaki) -->
-            <footer class="meta-identity">
+        <footer class="footer-container">
+            <p class="cta-text-top">“Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”</p>
+            <strong class="cta-text-main">Jika gelombang kedukaan terasa terlalu berat untuk dihadapi sendiri, jangan ragu untuk menghubungi layanan kesehatan mental terdekat atau profesional.</strong>
+            
+            <div class="meta-identity">
                 <div class="meta-info">Mata Kuliah Kesehatan Mental | Fakultas Psikologi, Universitas Sebelas Maret (UNS)</div>
                 <div class="team-members-row">
                     <span class="member-item">• Naufal Rizki Fadhillah (P0122176)</span>
@@ -333,8 +318,8 @@
                     <span class="member-item">• Claudia Sekar Nareswari (P0123065)</span>
                     <span class="member-item">• Kezia Kinanti Jiun (P0123286)</span>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
 
     </div>
 
