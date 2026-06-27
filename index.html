@@ -26,43 +26,56 @@
             padding: 20px;
         }
 
-        /* Container Rasio 4:5 Instagram */
+        /* Pembungkus utama untuk membatasi ukuran maksimal di desktop */
+        .poster-wrapper {
+            width: 100%;
+            max-width: 550px; /* Ukuran maksimal lebar poster */
+            container-type: inline-size; /* Mengaktifkan Container Queries */
+        }
+
+        /* Kontainer utama terkunci mutlak di rasio 4:5 */
         .poster-container {
-            width: 1080px;
-            height: 1350px;
+            width: 100%;
+            aspect-ratio: 4 / 5;
             background-color: #f7f4eb;
             position: relative;
             overflow: hidden;
-            padding: 70px;
+            /* Semua padding dan ukuran di bawah menggunakan cqw (Container Query Width) */
+            padding: 5cqw 5cqw 4cqw 5cqw; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-radius: 8px;
         }
 
-        /* Elemen Seni Kintsugi (Garis Emas Abstrak) */
-        .kintsugi-line {
+        /* Latar Belakang Kintsugi */
+        .kintsugi-bg {
             position: absolute;
-            background: linear-gradient(90deg, transparent, #d4af37, #e6ca65, transparent);
-            height: 2px;
-            transform: rotate(-15deg);
-            opacity: 0.6;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(135deg, transparent 45%, #d4af37 46%, #e6ca65 47%, transparent 48%),
+                linear-gradient(45deg, transparent 60%, #d4af37 61%, #e6ca65 62%, transparent 63%);
+            background-size: 100% 100%;
+            opacity: 0.35;
             z-index: 1;
+            pointer-events: none;
         }
-        .line-1 { width: 120%; top: 25%; left: -10%; }
-        .line-2 { width: 80%; top: 65%; right: -5%; transform: rotate(25deg); }
 
-        /* Aksen Tunas Tanaman Hidup di Sela Retakan */
+        /* Aksen Tunas Tanaman yang Terkunci Posisinya */
         .sprout-accent {
             position: absolute;
-            font-size: 2.8rem;
-            opacity: 0.85;
+            font-size: 4cqw;
+            opacity: 0.8;
             z-index: 2;
+            pointer-events: none;
         }
-        .sprout-1 { top: 22%; left: 80px; transform: rotate(-10deg); }
-        .sprout-2 { bottom: 250px; right: 90px; transform: rotate(15deg); }
+        .sprout-1 { top: 22%; left: 2.5%; transform: rotate(-15deg); }
+        .sprout-2 { bottom: 27%; right: 2.5%; transform: rotate(15deg); }
 
-        /* Konten di atas background */
         .content-layer {
             position: relative;
             z-index: 5;
@@ -72,15 +85,15 @@
             justify-content: space-between;
         }
 
-        /* --- Judul Utama --- */
+        /* --- 1. Judul Utama --- */
         .main-title-box {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5cqw;
         }
 
         .main-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.6rem;
+            font-size: 4.8cqw;
             line-height: 1.2;
             color: #2c3e2b;
             font-weight: 600;
@@ -90,87 +103,82 @@
             font-style: italic;
             color: #b8860b;
             display: block;
-            font-size: 2.8rem;
-            margin-top: 5px;
+            font-size: 3.8cqw;
+            margin-top: 0.5cqw;
         }
 
-        /* --- Bagian Tengah: Grid Ringkas --- */
+        /* --- 2. Grid Dua Kolom --- */
         .grid-middle {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 30px;
+            gap: 2.5cqw;
+            margin-bottom: 1.5cqw;
         }
 
         .card {
-            background-color: rgba(255, 255, 255, 0.75);
-            padding: 35px;
-            border-radius: 20px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(92, 111, 90, 0.15);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            background-color: rgba(255, 255, 255, 0.88);
+            padding: 2.5cqw;
+            border-radius: 2cqw;
+            border: 0.2cqw solid rgba(92, 111, 90, 0.15);
         }
 
         .card h3 {
-            font-size: 1.4rem;
+            font-size: 2.5cqw;
             color: #5c6f5a;
-            margin-bottom: 15px;
+            margin-bottom: 1cqw;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .card p {
-            font-size: 1.15rem;
-            line-height: 1.6;
+            font-size: 2cqw;
+            line-height: 1.45;
             color: #4a3f35;
+            text-align: justify;
         }
 
         .highlight-data {
             font-weight: 700;
             color: #8b5a2b;
             background-color: rgba(212, 175, 55, 0.12);
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 0 0.5cqw;
+            border-radius: 0.5cqw;
         }
 
-        /* --- Bagian PTG (Langkah Pertumbuhan) --- */
+        /* --- 3. Bagian PTG --- */
         .ptg-section {
-            background-color: rgba(255, 255, 255, 0.75);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(92, 111, 90, 0.15);
-            margin-bottom: 40px;
-            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.88);
+            padding: 3cqw;
+            border-radius: 2cqw;
+            border: 0.2cqw solid rgba(92, 111, 90, 0.15);
+            margin-bottom: 2cqw;
         }
 
         .ptg-section h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
+            font-size: 3.6cqw;
             color: #2c3e2b;
-            margin-bottom: 20px;
+            margin-bottom: 2cqw;
             text-align: center;
         }
 
         .tips-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px 40px;
+            gap: 2cqw 3cqw;
         }
 
         .tip-item {
             display: flex;
-            gap: 20px;
+            gap: 1.5cqw;
             align-items: flex-start;
         }
 
         .tip-icon {
-            font-size: 1.8rem;
+            font-size: 2.5cqw;
             background: rgba(92, 111, 90, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 14px;
+            width: 5cqw;
+            height: 5cqw;
+            border-radius: 1cqw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -178,145 +186,146 @@
         }
 
         .tip-content h4 {
-            font-size: 1.2rem;
+            font-size: 2.2cqw;
             color: #3d342e;
-            margin-bottom: 4px;
+            margin-bottom: 0.3cqw;
             font-weight: 700;
         }
 
         .tip-content p {
-            font-size: 1.05rem;
-            line-height: 1.4;
+            font-size: 1.9cqw;
+            line-height: 1.35;
             color: #61554d;
         }
 
-        /* --- Footer & Kampus --- */
+        /* --- 4. Footer CTA & Identitas --- */
         .footer-container {
             background-color: #5c6f5a;
             color: #f7f4eb;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(92, 111, 90, 0.2);
+            padding: 3cqw;
+            border-radius: 2cqw;
             text-align: center;
+            margin-top: auto;
         }
 
         .cta-text-main {
             display: block;
-            font-size: 1.2rem;
+            font-size: 2.1cqw;
             font-weight: 600;
-            line-height: 1.5;
-            margin-bottom: 20px;
+            line-height: 1.4;
+            margin-bottom: 2cqw;
         }
 
         .meta-identity {
-            border-top: 1px dashed rgba(247, 244, 235, 0.25);
-            padding-top: 20px;
-            font-size: 0.85rem;
-            color: rgba(247, 244, 235, 0.75);
+            border-top: 0.15cqw dashed rgba(247, 244, 235, 0.25);
+            padding-top: 1.5cqw;
+            font-size: 1.6cqw;
+            color: rgba(247, 244, 235, 0.85);
+            line-height: 1.4;
         }
 
-        .meta-info {
-            font-weight: 500;
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
+        .meta-info-1 {
+            font-weight: 600;
+            margin-bottom: 0.3cqw;
+        }
+        
+        .meta-info-2 {
+            margin-bottom: 1cqw;
+            opacity: 0.9;
         }
 
         .team-members-row {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 5px 15px;
+            gap: 0.5cqw 2cqw;
+            font-weight: 400;
         }
     </style>
 </head>
 <body>
 
-    <div class="poster-container">
-        <!-- Background Linier Art Kintsugi -->
-        <div class="kintsugi-line line-1"></div>
-        <div class="kintsugi-line line-2"></div>
+    <div class="poster-wrapper">
+        <div class="poster-container">
+            <div class="kintsugi-bg"></div>
 
-        <!-- Aksen Tunas Tumbuhan Estetik -->
-        <div class="sprout-accent sprout-1">🌱</div>
-        <div class="sprout-accent sprout-2">🌱</div>
+            <div class="sprout-accent sprout-1">🌱</div>
+            <div class="sprout-accent sprout-2">🌱</div>
 
-        <!-- Lapisan Konten Utama -->
-        <div class="content-layer">
-            
-            <!-- 1. Judul Utama -->
-            <div class="main-title-box">
-                <h1 class="main-title">
-                    Menghargai Air Mata, Memeluk Luka
-                    <span>Langkah Perlahan Menuju Post-Traumatic Growth</span>
-                </h1>
-            </div>
-
-            <!-- 2. Grid Informasi (Teks Sudah Dirampingkan) -->
-            <div class="grid-middle">
-                <div class="card">
-                    <h3>📊 Realita Kedukaan</h3>
-                    <p>Secara global, <span class="highlight-data">10% - 16% orang dewasa</span> mengalami gangguan duka cita berat, dan 7% diantaranya rentan terkena <em>Prolonged Grief Disorder</em> akibat hilangnya ruang aman berekspresi.</p>
-                </div>
-                <div class="card">
-                    <h3>🌊 Gelombang Emosi</h3>
-                    <p>Berduka adalah proses valid. Kelelahan emosional kerap muncul saat lingkungan sosial menuntut kita lekas pulih. Ingat: **Proses berdukamu tidak harus terburu-buru.**</p>
-                </div>
-            </div>
-
-            <!-- 3. Langkah Menumbuhkan Harapan -->
-            <div class="ptg-section">
-                <h3>Menumbuhkan Harapan: Langkah Menuju Pertumbuhan (PTG)</h3>
+            <div class="content-layer">
                 
-                <div class="tips-grid">
-                    <div class="tip-item">
-                        <div class="tip-icon">❤️</div>
-                        <div class="tip-content">
-                            <h4>Self-Compassion</h4>
-                            <p>Beri waktu untuk merasa. Izinkan diri rapuh hari ini agar bisa pulih bertahap.</p>
-                        </div>
+                <div class="main-title-box">
+                    <h1 class="main-title">
+                        Menghargai Air Mata, Memeluk Luka
+                        <span>Langkah Perlahan Menuju Post-Traumatic Growth</span>
+                    </h1>
+                </div>
+
+                <div class="grid-middle">
+                    <div class="card">
+                        <h3>📊 Realita Kedukaan</h3>
+                        <p>Secara global, <span class="highlight-data">10% - 16% orang dewasa</span> mengalami gangguan duka cita berat, dan 7% - 10% diantaranya berisiko mengembangkan <em>Prolonged Grief Disorder</em> (Rosner et al., 2021).</p>
                     </div>
-                    <div class="tip-item">
-                        <div class="tip-icon">🤝</div>
-                        <div class="tip-content">
-                            <h4>Social Connection</h4>
-                            <p>Jalin kembali koneksi. Bagikan kisahmu dengan orang-orang yang siap mendengar.</p>
-                        </div>
+                    <div class="card">
+                        <h3>🌊 Gelombang Emosi</h3>
+                        <p>Berduka adalah respons valid. Kelelahan emosional kerap muncul saat lingkungan menuntut cepat pulih. Ingat: **Proses berdukamu tidak harus terburu-buru.**</p>
                     </div>
-                    <div class="tip-item">
-                        <div class="tip-icon">✨</div>
-                        <div class="tip-content">
-                            <h4>Meaning-Making</h4>
-                            <p>Temukan makna baru dari nilai atau pesan berharga yang ditinggalkan.</p>
+                </div>
+
+                <div class="ptg-section">
+                    <h3>Menumbuhkan Harapan: Langkah Menuju Pertumbuhan (PTG)</h3>
+                    
+                    <div class="tips-grid">
+                        <div class="tip-item">
+                            <div class="tip-icon">❤️</div>
+                            <div class="tip-content">
+                                <h4>Self-Compassion</h4>
+                                <p>Beri waktu untuk merasa. Izinkan diri rapuh untuk pulih bertahap.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tip-item">
-                        <div class="tip-icon">🎯</div>
-                        <div class="tip-content">
-                            <h4>New Possibilities</h4>
-                            <p>Fokus potensi diri. Rancang arah dan tujuan hidup baru secara perlahan.</p>
+                        <div class="tip-item">
+                            <div class="tip-icon">🤝</div>
+                            <div class="tip-content">
+                                <h4>Social Connection</h4>
+                                <p>Jalin koneksi. Bagikan ceritamu dengan orang yang siap mendengar.</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">✨</div>
+                            <div class="tip-content">
+                                <h4>Meaning-Making</h4>
+                                <p>Temukan makna baru dari pesan berharga yang ditinggalkan.</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">🎯</div>
+                            <div class="tip-content">
+                                <h4>New Possibilities</h4>
+                                <p>Fokus potensi. Rancang tujuan hidup baru secara perlahan.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <footer class="footer-container">
+                    <strong class="cta-text-main">
+                        “Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”<br>
+                        Jika gelombang kedukaan terasa terlalu berat, jangan ragu hubungi layanan kesehatan mental atau profesional.
+                    </strong>
+                    
+                    <div class="meta-identity">
+                        <div class="meta-info-1">Mata Kuliah Kesehatan Mental | Fakultas Psikologi</div>
+                        <div class="meta-info-2">Universitas Sebelas Maret (UNS) &bull; Kelompok 4 Coursera (Kelas C 2023)</div>
+                        <div class="team-members-row">
+                            <span>• Naufal Rizki Fadhillah (P0122176)</span>
+                            <span>• Clarabel Simaremare (P0123064)</span>
+                            <span>• Claudia Sekar Nareswari (P0123065)</span>
+                            <span>• Kezia Kinanti Jiun (P0123286)</span>
+                        </div>
+                    </div>
+                </footer>
+
             </div>
-
-            <!-- 4. Footer CTA & Identitas Terintegrasi -->
-            <footer class="footer-container">
-                <strong class="cta-text-main">
-                    “Sembuh butuh waktu, dan setiap langkah kecilmu sangatlah berarti.”<br>
-                    Jika gelombang kedukaan terasa terlalu berat, jangan ragu hubungi profesional atau layanan kesehatan mental.
-                </strong>
-                
-                <div class="meta-identity">
-                    <div class="meta-info">Mata Kuliah Kesehatan Mental | Fakultas Psikologi, Universitas Sebelas Maret (UNS)</div>
-                    <div class="team-members-row">
-                        <span>• Naufal Rizki F. (P0122176)</span>
-                        <span>• Clarabel S. (P0123064)</span>
-                        <span>• Claudia Sekar N. (P0123065)</span>
-                        <span>• Kezia Kinanti J. (P0123286)</span>
-                    </div>
-                </div>
-            </footer>
-
         </div>
     </div>
 
